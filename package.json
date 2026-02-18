@@ -1,0 +1,52 @@
+{
+  "name": "wallpaper-clone",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "main.mjs",
+  "scripts": {
+    "dev": "electron .",
+    "rebuild": "electron-rebuild -f -w electron-as-wallpaper",
+    "postinstall": "electron-rebuild -f -w electron-as-wallpaper",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3",
+    "electron-rebuild": "^3.2.9"
+  },
+  "dependencies": {
+    "electron-as-wallpaper": "^2.0.3"
+  },
+  "build": {
+  "appId": "com.feder.wallpaperclone",
+  "productName": "Wallpaper Clone",
+
+  "directories": {
+    "buildResources": "build",
+    "output": "dist"
+  },
+
+  "files": [
+    "**/*"
+  ],
+
+  "extraResources": [
+    { "from": "assets", "to": "assets" },
+    { "from": "wallpapers", "to": "wallpapers" }
+  ],
+
+  "win": {
+    "target": "nsis",
+    "icon": "build/icon.ico"
+  },
+
+  "nsis": {
+    "oneClick": false,
+    "perMachine": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true
+  }
+}
+
+}
